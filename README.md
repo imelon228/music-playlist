@@ -37,4 +37,4 @@ This is a responsive website inspired by Spotify, built in a single HTML file wi
 - Ilyas: worked with Bootstrap, fonts, visuality, flexbox/grid
 
 ## Published website
-[paste GitHub Pages
+https://imelon228.github.io/music-playlist/
