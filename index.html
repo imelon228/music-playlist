@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WaveList | Music Playlist</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home">Wave<span>List</span></a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#songs">Songs</a></li>
+          <li><a href="#albums">Albums</a></li>
+          <li><a href="#artists">Artists</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero page" id="home">
+      <div class="container">
+        <h1>Music for <span>every mood</span></h1>
+        <p>Browse songs, albums and artists you love in one simple playlist.</p>
+        <a class="btn btn-music me-2" href="#songs">Listen now</a>
+        <a class="btn btn-outline-light rounded-pill px-4" href="#albums">Explore albums</a>
+        <h2 class="section-title mt-5">Featured albums</h2>
+        <div class="row g-4">
+          <div class="col-12 col-sm-4">
+            <article class="card-box">
+              <div class="cover">
+                <img src="images/album1.jpg" alt="Currents" loading="lazy">
+                <span class="play">&#9654;</span>
+              </div>
+              <h3>Currents</h3>
+              <p>2015 - Tame Impala</p>
+            </article>
+          </div>
+          <div class="col-12 col-sm-4">
+            <article class="card-box">
+              <div class="cover">
+                <img src="images/album2.jpg" alt="SOUR" loading="lazy">
+                <span class="play">&#9654;</span>
+              </div>
+              <h3>SOUR</h3>
+              <p>2021 - Olivia Rodrigo</p>
+            </article>
+          </div>
+          <div class="col-12 col-sm-4">
+            <article class="card-box">
+              <div class="cover">
+                <img src="images/album3.jpg" alt="The Fame Monster" loading="lazy">
+                <span class="play">&#9654;</span>
+              </div>
+              <h3>The Fame Monster</h3>
+              <p>2009 - Lady Gaga</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container py-5 page" id="artists">
+      <h2 class="section-title">Popular artists</h2>
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist1.jpg" alt="Tame Impala" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Tame Impala</h3>
+            <p>Artist - Psychedelic Pop</p>
+          </article>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist2.jpg" alt="Olivia Rodrigo" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Olivia Rodrigo</h3>
+            <p>Artist - Pop Rock</p>
+          </article>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist3.jpg" alt="Lady Gaga" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Lady Gaga</h3>
+            <p>Artist - Pop</p>
+          </article>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist4.jpg" alt="Michael Jackson" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Michael Jackson</h3>
+            <p>Artist - Pop</p>
+          </article>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist5.jpg" alt="Kanye West" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Kanye West</h3>
+            <p>Artist - Hip-Hop</p>
+          </article>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <article class="card-box artist-card">
+            <div class="cover">
+              <img src="images/artist6.jpg" alt="Tyler, the Creator" loading="lazy">
+              <span class="play">&#9654;</span>
+            </div>
+            <h3>Tyler, the Creator</h3>
+            <p>Artist - Hip-Hop</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="container py-5 page" id="albums">
+      <h2 class="section-title">Top albums</h2>
+      <div class="album-grid">
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album1.jpg" alt="Currents" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>Currents</h3>
+          <p>2015 - Tame Impala</p>
+        </article>
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album2.jpg" alt="SOUR" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>SOUR</h3>
+          <p>2021 - Olivia Rodrigo</p>
+        </article>
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album3.jpg" alt="The Fame Monster" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>The Fame Monster</h3>
+          <p>2009 - Lady Gaga</p>
+        </article>
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album4.jpg" alt="Thriller" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>Thriller</h3>
+          <p>1982 - Michael Jackson</p>
+        </article>
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album5.jpg" alt="Graduation" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>Graduation</h3>
+          <p>2007 - Kanye West</p>
+        </article>
+        <article class="card-box">
+          <div class="cover">
+            <img src="images/album6.jpg" alt="IGOR" loading="lazy">
+            <span class="play">&#9654;</span>
+          </div>
+          <h3>IGOR</h3>
+          <p>2019 - Tyler, the Creator</p>
+        </article>
+      </div>
+    </section>
+    <section class="container py-5 page" id="songs">
+      <h2 class="section-title">Songs</h2>
+      <div class="table-wrap">
+        <table class="song-table">
+          <caption>Songs in the WaveList playlist</caption>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Artist</th>
+              <th>Album</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>The Less I Know the Better</td>
+              <td>Tame Impala</td>
+              <td>Currents</td>
+              <td>2015</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Let It Happen</td>
+              <td>Tame Impala</td>
+              <td>Currents</td>
+              <td>2015</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>good 4 u</td>
+              <td>Olivia Rodrigo</td>
+              <td>SOUR</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>drivers license</td>
+              <td>Olivia Rodrigo</td>
+              <td>SOUR</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Bad Romance</td>
+              <td>Lady Gaga</td>
+              <td>The Fame Monster</td>
+              <td>2009</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Alejandro</td>
+              <td>Lady Gaga</td>
+              <td>The Fame Monster</td>
+              <td>2009</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Billie Jean</td>
+              <td>Michael Jackson</td>
+              <td>Thriller</td>
+              <td>1982</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Beat It</td>
+              <td>Michael Jackson</td>
+              <td>Thriller</td>
+              <td>1982</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Stronger</td>
+              <td>Kanye West</td>
+              <td>Graduation</td>
+              <td>2007</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Good Life</td>
+              <td>Kanye West</td>
+              <td>Graduation</td>
+              <td>2007</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>EARFQUAKE</td>
+              <td>Tyler, the Creator</td>
+              <td>IGOR</td>
+              <td>2019</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>NEW MAGIC WAND</td>
+              <td>Tyler, the Creator</td>
+              <td>IGOR</td>
+              <td>2019</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="container py-5 page" id="contact">
+      <h2 class="section-title">Contact us</h2>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <p>Want to suggest a song or an artist? Send us a message.</p>
+          <ul>
+            <li>Email: hello@wavelist.kz</li>
+            <li>Phone: +7 777 123 45 67</li>
+            <li>Address: Astana, Kazakhstan</li>
+          </ul>
+        </div>
+        <form class="contact-form" action="#" method="post">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <label for="artist">Favourite artist</label>
+          <select id="artist" name="artist">
+              <option>Tame Impala</option>
+              <option>Olivia Rodrigo</option>
+              <option>Lady Gaga</option>
+              <option>Michael Jackson</option>
+              <option>Kanye West</option>
+              <option>Tyler, the Creator</option>
+          </select>
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Suggest a song or an artist" required></textarea>
+          <button type="submit" class="btn btn-music">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>WaveList</h3>
+        <p>Your place for songs, albums and artists.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>hello@wavelist.kz</li>
+          <li>+7 777 123 45 67</li>
+          <li>Astana, Kazakhstan</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <ul>
+          <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 WaveList. All rights reserved.</p>
+  </footer>
+</body>
+</html>

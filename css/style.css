@@ -1,0 +1,393 @@
+:root {
+  --bg: #121212;
+  --card: #181818;
+  --hover: #282828;
+  --green: #1db954;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+  --radius: 8px;
+  --title-size: 3rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding-top: 72px;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--text);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(18, 18, 18, 0.95);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo span,
+.hero h1 span {
+  color: var(--green);
+}
+
+.nav-list {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--text);
+}
+
+.hero {
+  background: linear-gradient(180deg, #1b5e38 0%, var(--bg) 100%);
+  padding: 90px 0 60px;
+}
+
+.hero h1 {
+  font-size: var(--title-size);
+  font-weight: 700;
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 12px 0 28px;
+  color: #d9d9d9;
+}
+
+.page {
+  display: none;
+}
+
+.page:target,
+main:not(:has(.page:target)) #home {
+  display: block;
+}
+
+body:not(:has(.page:target)) .nav-list a[href="#home"],
+body:has(#home:target) .nav-list a[href="#home"],
+body:has(#songs:target) .nav-list a[href="#songs"],
+body:has(#albums:target) .nav-list a[href="#albums"],
+body:has(#artists:target) .nav-list a[href="#artists"],
+body:has(#contact:target) .nav-list a[href="#contact"] {
+  color: var(--green);
+}
+
+.btn-music {
+  background-color: var(--green);
+  color: #000000;
+  font-weight: 700;
+  border: none;
+  border-radius: 500px;
+  padding: 12px 32px;
+}
+
+.btn-music:hover,
+.btn-music:focus {
+  background-color: #1ed760;
+  color: #000000;
+  transform: scale(1.04);
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.4);
+}
+
+.section-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.card-box {
+  background-color: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  height: 100%;
+  transition: background-color 0.2s;
+}
+
+.card-box:hover {
+  background-color: var(--hover);
+}
+
+.cover {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.cover img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.artist-card {
+  text-align: center;
+}
+
+.artist-card .cover img {
+  border-radius: 50%;
+}
+
+.play {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green);
+  color: #000000;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.2s;
+}
+
+.card-box:hover .play {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.card-box p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.song-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.song-table caption {
+  color: var(--muted);
+  padding-bottom: 10px;
+  caption-side: top;
+}
+
+.song-table th {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--hover);
+}
+
+.song-table th,
+.song-table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.song-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.song-table tbody tr:hover {
+  background-color: var(--hover);
+}
+
+.contact-wrap {
+  display: flex;
+  gap: 40px;
+}
+
+.contact-info {
+  flex: 1;
+  color: var(--muted);
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  line-height: 2;
+}
+
+.contact-form {
+  flex: 2;
+  background-color: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background-color: var(--hover);
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.site-footer {
+  background-color: #000000;
+  margin-top: 40px;
+  padding: 40px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.footer-grid h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  color: var(--muted);
+}
+
+.footer-grid p {
+  color: var(--muted);
+}
+
+.copy {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 24px 0 0;
+}
+
+@media (max-width: 992px) {
+  :root {
+    --title-size: 2.4rem;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-wrap {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --title-size: 1.8rem;
+  }
+
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+  }
+
+  .hero {
+    padding: 50px 0 40px;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .song-table th,
+  .song-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .contact-form {
+    padding: 18px;
+  }
+}
