@@ -14,16 +14,14 @@ Music playlist website about songs, albums and artists.
 This is a responsive website inspired by Spotify, built in a single HTML file with 5 pages. Visitors can look through popular artists, albums and songs, and send a message with their own suggestions.
 
 ## Features implemented
-- One index.html that works as 5 pages (Home, Songs, Albums, Artists, Contact), switched with the CSS :target selector
+- One index.html that works as 5 pages (Home, Songs, Albums, Artists, Contact)
 - Fixed header with logo and Flexbox navigation, main area and footer
 - Songs table and contact form (inputs, select, textarea)
 - Flexbox and CSS Grid layouts
 - Positioning: fixed (header), relative and absolute (play button on cards)
-- :hover and :focus styles, :nth-child() for table rows
-- CSS variables in :root and Google Font Montserrat
-- Lazy loading for images below the fold
+- :hover and :focus styles
 - Media queries for tablet (992px) and mobile (576px), desktop-first
-- Bootstrap grid and utility classes
+- Bootstrap grid
 
 ## Technologies used
 - HTML5
