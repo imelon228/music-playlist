@@ -19,6 +19,8 @@
           <li><a href="#songs">Songs</a></li>
           <li><a href="#albums">Albums</a></li>
           <li><a href="#artists">Artists</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#register">Register</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -133,8 +135,17 @@
     </section>
     <section class="container py-5 page" id="albums">
       <h2 class="section-title">Top albums</h2>
+      <div class="filter-bar">
+        <input type="text" id="albumSearch" placeholder="Search albums or artists">
+        <div class="filter-buttons">
+          <button type="button" class="btn btn-filter active" data-category="all">All</button>
+          <button type="button" class="btn btn-filter" data-category="pop">Pop</button>
+          <button type="button" class="btn btn-filter" data-category="hip-hop">Hip-Hop</button>
+          <button type="button" class="btn btn-filter" data-category="alternative">Alternative</button>
+        </div>
+      </div>
       <div class="album-grid">
-        <article class="card-box">
+        <article class="card-box" data-genre="alternative">
           <div class="cover">
             <img src="images/album1.jpg" alt="Currents" loading="lazy">
             <span class="play">&#9654;</span>
@@ -142,7 +153,7 @@
           <h3>Currents</h3>
           <p>2015 - Tame Impala</p>
         </article>
-        <article class="card-box">
+        <article class="card-box" data-genre="pop">
           <div class="cover">
             <img src="images/album2.jpg" alt="SOUR" loading="lazy">
             <span class="play">&#9654;</span>
@@ -150,7 +161,7 @@
           <h3>SOUR</h3>
           <p>2021 - Olivia Rodrigo</p>
         </article>
-        <article class="card-box">
+        <article class="card-box" data-genre="pop">
           <div class="cover">
             <img src="images/album3.jpg" alt="The Fame Monster" loading="lazy">
             <span class="play">&#9654;</span>
@@ -158,7 +169,7 @@
           <h3>The Fame Monster</h3>
           <p>2009 - Lady Gaga</p>
         </article>
-        <article class="card-box">
+        <article class="card-box" data-genre="pop">
           <div class="cover">
             <img src="images/album4.jpg" alt="Thriller" loading="lazy">
             <span class="play">&#9654;</span>
@@ -166,7 +177,7 @@
           <h3>Thriller</h3>
           <p>1982 - Michael Jackson</p>
         </article>
-        <article class="card-box">
+        <article class="card-box" data-genre="hip-hop">
           <div class="cover">
             <img src="images/album5.jpg" alt="Graduation" loading="lazy">
             <span class="play">&#9654;</span>
@@ -174,7 +185,7 @@
           <h3>Graduation</h3>
           <p>2007 - Kanye West</p>
         </article>
-        <article class="card-box">
+        <article class="card-box" data-genre="hip-hop">
           <div class="cover">
             <img src="images/album6.jpg" alt="IGOR" loading="lazy">
             <span class="play">&#9654;</span>
@@ -183,9 +194,22 @@
           <p>2019 - Tyler, the Creator</p>
         </article>
       </div>
+      <p id="noAlbums" class="no-results">No albums found.</p>
     </section>
     <section class="container py-5 page" id="songs">
       <h2 class="section-title">Songs</h2>
+      <div class="toolbar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by title, artist or album" aria-label="Search songs">
+        <button type="button" class="btn btn-music" id="addBtn">Add song</button>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button type="button" class="filter-btn active" data-genre="all">All</button>
+        <button type="button" class="filter-btn" data-genre="Pop">Pop</button>
+        <button type="button" class="filter-btn" data-genre="Hip-Hop">Hip-Hop</button>
+        <button type="button" class="filter-btn" data-genre="Pop Rock">Pop Rock</button>
+        <button type="button" class="filter-btn" data-genre="Psychedelic Pop">Psychedelic Pop</button>
+      </div>
+      <p class="no-results" id="noResults">No songs found.</p>
       <div class="table-wrap">
         <table class="song-table">
           <caption>Songs in the WaveList playlist</caption>
@@ -195,97 +219,114 @@
               <th>Title</th>
               <th>Artist</th>
               <th>Album</th>
+              <th>Genre</th>
               <th>Year</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>The Less I Know the Better</td>
-              <td>Tame Impala</td>
-              <td>Currents</td>
-              <td>2015</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Let It Happen</td>
-              <td>Tame Impala</td>
-              <td>Currents</td>
-              <td>2015</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>good 4 u</td>
-              <td>Olivia Rodrigo</td>
-              <td>SOUR</td>
-              <td>2021</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>drivers license</td>
-              <td>Olivia Rodrigo</td>
-              <td>SOUR</td>
-              <td>2021</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Bad Romance</td>
-              <td>Lady Gaga</td>
-              <td>The Fame Monster</td>
-              <td>2009</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Alejandro</td>
-              <td>Lady Gaga</td>
-              <td>The Fame Monster</td>
-              <td>2009</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Billie Jean</td>
-              <td>Michael Jackson</td>
-              <td>Thriller</td>
-              <td>1982</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Beat It</td>
-              <td>Michael Jackson</td>
-              <td>Thriller</td>
-              <td>1982</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Stronger</td>
-              <td>Kanye West</td>
-              <td>Graduation</td>
-              <td>2007</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Good Life</td>
-              <td>Kanye West</td>
-              <td>Graduation</td>
-              <td>2007</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>EARFQUAKE</td>
-              <td>Tyler, the Creator</td>
-              <td>IGOR</td>
-              <td>2019</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>NEW MAGIC WAND</td>
-              <td>Tyler, the Creator</td>
-              <td>IGOR</td>
-              <td>2019</td>
-            </tr>
-          </tbody>
+          <tbody id="songBody"></tbody>
         </table>
       </div>
+    </section>
+    <section class="container py-5 page" id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album1.jpg" class="gallery-item" data-caption="Currents - Tame Impala">
+            <img src="images/album1.jpg" alt="Currents - Tame Impala" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album2.jpg" class="gallery-item" data-caption="SOUR - Olivia Rodrigo">
+            <img src="images/album2.jpg" alt="SOUR - Olivia Rodrigo" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album3.jpg" class="gallery-item" data-caption="The Fame Monster - Lady Gaga">
+            <img src="images/album3.jpg" alt="The Fame Monster - Lady Gaga" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album4.jpg" class="gallery-item" data-caption="Thriller - Michael Jackson">
+            <img src="images/album4.jpg" alt="Thriller - Michael Jackson" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album5.jpg" class="gallery-item" data-caption="Graduation - Kanye West">
+            <img src="images/album5.jpg" alt="Graduation - Kanye West" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/album6.jpg" class="gallery-item" data-caption="IGOR - Tyler, the Creator">
+            <img src="images/album6.jpg" alt="IGOR - Tyler, the Creator" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist1.jpg" class="gallery-item" data-caption="Tame Impala">
+            <img src="images/artist1.jpg" alt="Tame Impala" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist2.jpg" class="gallery-item" data-caption="Olivia Rodrigo">
+            <img src="images/artist2.jpg" alt="Olivia Rodrigo" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist3.jpg" class="gallery-item" data-caption="Lady Gaga">
+            <img src="images/artist3.jpg" alt="Lady Gaga" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist4.jpg" class="gallery-item" data-caption="Michael Jackson">
+            <img src="images/artist4.jpg" alt="Michael Jackson" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist5.jpg" class="gallery-item" data-caption="Kanye West">
+            <img src="images/artist5.jpg" alt="Kanye West" loading="lazy">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/artist6.jpg" class="gallery-item" data-caption="Tyler, the Creator">
+            <img src="images/artist6.jpg" alt="Tyler, the Creator" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="container py-5 page" id="register">
+      <h2 class="section-title">Create your account</h2>
+      <div id="formAlert"></div>
+      <form class="register-form" id="registerForm" novalidate data-bs-theme="dark">
+        <div class="mb-3">
+          <label for="regName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="regName" placeholder="Your name">
+          <div class="valid-feedback">&#10004; Looks good</div>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="regEmail" class="form-label">Email</label>
+          <input type="text" class="form-control" id="regEmail" placeholder="name@mail.com">
+          <div class="valid-feedback">&#10004; Email looks good</div>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="regPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="regPassword" placeholder="At least 6 characters">
+          <div class="valid-feedback">&#10004; Password accepted</div>
+          <div class="invalid-feedback"></div>
+          <div class="progress strength-bar mt-2">
+            <div class="progress-bar" id="strengthBar"></div>
+          </div>
+          <small id="strengthText" class="strength-text">Password strength</small>
+        </div>
+        <div class="mb-4">
+          <label for="regConfirm" class="form-label">Confirm password</label>
+          <input type="password" class="form-control" id="regConfirm" placeholder="Repeat your password">
+          <div class="valid-feedback">&#10004; Passwords match</div>
+          <div class="invalid-feedback"></div>
+        </div>
+        <button type="submit" class="btn btn-music">Register</button>
+      </form>
     </section>
     <section class="container py-5 page" id="contact">
       <h2 class="section-title">Contact us</h2>
@@ -344,5 +385,63 @@
     </div>
     <p class="copy">&copy; 2026 WaveList. All rights reserved.</p>
   </footer>
+  <div class="modal fade" id="songModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-bs-theme="dark">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" id="songForm" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Add song</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="songId">
+          <div class="mb-3">
+            <label for="songTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="songTitle">
+            <div class="invalid-feedback">Please enter the title</div>
+          </div>
+          <div class="mb-3">
+            <label for="songArtist" class="form-label">Artist</label>
+            <input type="text" class="form-control" id="songArtist">
+            <div class="invalid-feedback">Please enter the artist</div>
+          </div>
+          <div class="mb-3">
+            <label for="songAlbum" class="form-label">Album</label>
+            <input type="text" class="form-control" id="songAlbum">
+            <div class="invalid-feedback">Please enter the album</div>
+          </div>
+          <div class="mb-3">
+            <label for="songGenre" class="form-label">Genre</label>
+            <select class="form-select" id="songGenre">
+              <option>Pop</option>
+              <option>Hip-Hop</option>
+              <option>Pop Rock</option>
+              <option>Psychedelic Pop</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="songYear" class="form-label">Year</label>
+            <input type="number" class="form-control" id="songYear">
+            <div class="invalid-feedback">Enter a year from 1900 to the current year</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-music">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="lightbox" id="lightbox">
+    <button type="button" class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button type="button" class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous image">&#10094;</button>
+    <figure class="lb-figure">
+      <img id="lbImage" src="" alt="">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button type="button" class="lb-arrow lb-next" id="lbNext" aria-label="Next image">&#10095;</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

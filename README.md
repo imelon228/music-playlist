@@ -9,24 +9,29 @@ Music playlist website about songs, albums and artists.
 - [Member 3]
 
 ## Description
-WaveList is a responsive website inspired by Spotify, built in a single HTML file with 5 pages. Visitors can look through popular artists, albums and songs, and send a message with their own suggestions.
+WaveList is a responsive website inspired by Spotify, built in a single HTML file with 7 pages. The midterm version was extended in the endterm project with JavaScript and jQuery: form validation, live search and filter, a CRUD table and an image gallery with a lightbox.
 
 ## Features implemented
-- One index.html that works as 5 pages (Home, Songs, Albums, Artists, Contact), switched with the CSS :target selector
-- Fixed header with logo and Flexbox navigation, main area and footer
-- Songs table and contact form (inputs, select, textarea)
-- Flexbox and CSS Grid layouts
-- Positioning: fixed (header), relative and absolute (play button on cards)
-- :hover and :focus styles, :nth-child() for table rows
-- CSS variables in :root and Google Font Montserrat
-- Lazy loading for images below the fold
-- Media queries for tablet (992px) and mobile (576px), desktop-first
-- Bootstrap grid and utility classes
+
+### Midterm
+- One index.html that works as separate pages (Home, Songs, Albums, Artists, Contact), switched with the CSS :target selector
+- Fixed header with Flexbox navigation, main area and footer
+- Flexbox and CSS Grid layouts, positioning, :hover and :focus, :nth-child(), CSS variables
+- Google Font Montserrat, lazy loading for images
+- Media queries for tablet and mobile, Bootstrap grid and utility classes
+
+### Endterm
+- Registration form (Register page): required fields, email check with RegEx, password strength indicator (weak, medium, strong), password confirmation, real-time feedback with Bootstrap valid/invalid states and alerts, submission is blocked when validation fails
+- Real-time search (jQuery input event, case-insensitive) and genre filter buttons on the Songs page that work together
+- Songs table with CRUD: add and edit in a Bootstrap modal, delete with a confirmation prompt, table is rendered dynamically from a JavaScript array
+- Image gallery (Gallery page) with a Bootstrap grid, a lightbox with previous and next arrows, keyboard control and jQuery fadeIn, fadeOut and animate effects
 
 ## Technologies used
 - HTML5
 - CSS3
 - Bootstrap 5.3
+- JavaScript
+- jQuery 3.7
 - Google Fonts
 
 ## Individual contribution

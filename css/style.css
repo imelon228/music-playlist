@@ -107,6 +107,8 @@ body:has(#home:target) .nav-list a[href="#home"],
 body:has(#songs:target) .nav-list a[href="#songs"],
 body:has(#albums:target) .nav-list a[href="#albums"],
 body:has(#artists:target) .nav-list a[href="#artists"],
+body:has(#gallery:target) .nav-list a[href="#gallery"],
+body:has(#register:target) .nav-list a[href="#register"],
 body:has(#contact:target) .nav-list a[href="#contact"] {
   color: var(--green);
 }
@@ -274,7 +276,10 @@ body:has(#contact:target) .nav-list a[href="#contact"] {
 
 .contact-form input,
 .contact-form select,
-.contact-form textarea {
+.contact-form textarea,
+.song-form input,
+.filter-bar input,
+.table-wrap input {
   width: 100%;
   background-color: var(--hover);
   color: var(--text);
@@ -287,7 +292,10 @@ body:has(#contact:target) .nav-list a[href="#contact"] {
 
 .contact-form input:focus,
 .contact-form select:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.song-form input:focus,
+.filter-bar input:focus,
+.table-wrap input:focus {
   outline: none;
   border-color: var(--green);
 }
@@ -333,6 +341,14 @@ body:has(#contact:target) .nav-list a[href="#contact"] {
 
   .album-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-list {
+    gap: 14px;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
   }
 
   .footer-grid {
@@ -389,5 +405,215 @@ body:has(#contact:target) .nav-list a[href="#contact"] {
 
   .contact-form {
     padding: 18px;
+  }
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex: 1;
+  background-color: var(--hover);
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 500px;
+  padding: 10px 20px;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background-color: var(--hover);
+  color: var(--text);
+  border: none;
+  border-radius: 500px;
+  padding: 6px 18px;
+  font-weight: 600;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: #3a3a3a;
+}
+
+.filter-btn.active {
+  background-color: var(--text);
+  color: #000000;
+}
+
+.no-results {
+  display: none;
+  color: var(--muted);
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.modal-content {
+  background-color: var(--card);
+}
+
+.register-form {
+  max-width: 520px;
+  background-color: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+}
+
+.strength-bar {
+  height: 8px;
+}
+
+.strength-text {
+  color: var(--muted);
+}
+
+.gallery-item {
+  display: block;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus img {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  z-index: 2000;
+}
+
+.lb-figure {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  text-align: center;
+}
+
+.lb-figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80vw;
+  max-height: 75vh;
+  border-radius: var(--radius);
+}
+
+.lb-figure figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.lb-close,
+.lb-arrow {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.lb-close {
+  top: 16px;
+  right: 28px;
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.lb-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  padding: 12px 18px;
+}
+
+.lb-prev {
+  left: 12px;
+}
+
+.lb-next {
+  right: 12px;
+}
+
+.lb-close:hover,
+.lb-close:focus,
+.lb-arrow:hover,
+.lb-arrow:focus {
+  color: var(--green);
+}
+
+body:has(#gallery:target) .nav-list a[href="#gallery"],
+body:has(#register:target) .nav-list a[href="#register"] {
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .register-form {
+    padding: 18px;
+  }
+
+  .lb-arrow {
+    font-size: 1.8rem;
+    padding: 8px;
+  }
+
+  .lb-figure img {
+    max-width: 90vw;
   }
 }
