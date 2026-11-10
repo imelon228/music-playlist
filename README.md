@@ -37,6 +37,7 @@ WaveList is a responsive website inspired by Spotify, built in a single HTML fil
 - Fariddin: coded HTML tags and elements, basis of a website
 - Aidyn: designed CSS for playlist
 - Ilyas: worked with Bootstrap, fonts, visuality, flexbox/grid
+- for the endterm requirements, we worked in collaboration to do all tasks together
 
 ## Published website
 https://imelon228.github.io/music-playlist/
