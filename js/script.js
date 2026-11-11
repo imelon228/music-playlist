@@ -262,5 +262,30 @@ $(function () {
     if (e.key === "ArrowLeft") { showImage(current - 1); }
   });
 
+    var albumCategory = "all";
+
+  function filterAlbums() {
+    var term = $.trim($("#albumSearch").val()).toLowerCase();
+    var count = 0;
+    $(".album-grid .card-box").each(function () {
+      var $card = $(this);
+      var matchText = $card.text().toLowerCase().indexOf(term) !== -1;
+      var matchGenre = albumCategory === "all" || $card.data("genre") === albumCategory;
+      var show = matchText && matchGenre;
+      $card.toggle(show);
+      if (show) { count++; }
+    });
+    $("#noAlbums").toggle(count === 0);
+  }
+
+  $("#albumSearch").on("input", filterAlbums);
+
+  $(".filter-buttons").on("click", ".btn-filter", function () {
+    albumCategory = $(this).data("category");
+    $(".btn-filter").removeClass("active");
+    $(this).addClass("active");
+    filterAlbums();
+  });
+
   renderTable();
 });
