@@ -29,7 +29,7 @@
         </nav>
         <div class="nav-actions">
           <button type="button" class="theme-toggle-btn" id="themeToggle" title="Toggle theme">
-            <span>🌙</span> Dark
+            Dark
           </button>
           <div class="auth-nav-container" id="authContainer">
             <a href="signin.html" class="btn btn-sm btn-music-outline">Sign In</a>
@@ -55,7 +55,7 @@
       <form id="apiSearchForm" class="row g-3 align-items-center mb-4">
         <div class="col-12 col-md-9">
           <div class="input-group">
-            <span class="input-group-text bg-transparent text-muted border-secondary">&#128269;</span>
+            <span class="input-group-text bg-transparent text-muted border-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
             <input type="text" id="apiSearchInput" class="form-control" placeholder="Search any song, artist, or band (e.g., Dua Lipa, Queen, Daft Punk)..." value="The Weeknd" required>
           </div>
         </div>
@@ -97,14 +97,13 @@
 
     <!-- Error State -->
     <div id="apiError" class="alert alert-danger" style="display: none;" role="alert">
-      <h5 class="alert-heading">&#9888; API Request Failed</h5>
+      <h5 class="alert-heading">API Request Failed</h5>
       <p id="apiErrorMsg">Could not load music tracks from the external API.</p>
       <button type="button" class="btn btn-sm btn-outline-danger mt-2" id="apiRetryBtn">Retry Request</button>
     </div>
 
     <!-- Empty State -->
     <div id="apiEmpty" class="text-center py-5" style="display: none;">
-      <div style="font-size: 3rem; margin-bottom: 12px;">&#129300;</div>
       <h3>No Tracks Found</h3>
       <p class="text-muted">Try searching with a different artist, song title, or genre filter.</p>
     </div>
@@ -148,10 +147,6 @@
             <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
         </div>
-      </div>
-
-      <div class="ai-notice">
-        <strong>AI Usage Policy Notice:</strong> In accordance with course guidelines (Rule 6), AI tools (Google DeepMind) were used as supporting assistants for code structuring, responsive design, and refactoring into multi-page architecture.
       </div>
 
       <p class="copy">&copy; 2026 WaveList. Group: Fariddin, Aidyn, Ilyas (IT-2504). All rights reserved.</p>

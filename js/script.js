@@ -18,10 +18,10 @@ $(function () {
     var currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
     var $btn = $("#themeToggle");
     if (currentTheme === "dark") {
-      $btn.html('<span>🌙</span> Dark');
+      $btn.text("Dark");
       $btn.attr("aria-label", "Switch to light theme");
     } else {
-      $btn.html('<span>☀️</span> Light');
+      $btn.text("Light");
       $btn.attr("aria-label", "Switch to dark theme");
     }
   }
@@ -72,8 +72,7 @@ $(function () {
       var displayName = user.name || user.email.split("@")[0];
       $container.html(
         '<div class="auth-user-badge">' +
-          '<span class="user-icon">&#128100;</span> ' +
-          '<span>' + $("<div>").text(displayName).html() + "</span>" +
+                    '<span>' + $("<div>").text(displayName).html() + "</span>" +
         "</div>" +
         '<button type="button" class="btn-signout" id="navSignOutBtn" title="Sign out of account">Sign Out</button>'
       );
@@ -387,8 +386,8 @@ $(function () {
             '<img src="' + artwork + '" alt="' + $("<div>").text(trackTitle).html() + '" loading="lazy">' +
             '<span class="api-badge">' + $("<div>").text(trackGenre).html() + '</span>' +
             '<h3 class="api-track-name" title="' + $("<div>").text(trackTitle).html() + '">' + $("<div>").text(trackTitle).html() + '</h3>' +
-            '<p class="api-artist-name" title="' + $("<div>").text(artistName).html() + '">&#127908; ' + $("<div>").text(artistName).html() + '</p>' +
-            '<p class="api-collection-name" title="' + $("<div>").text(albumName).html() + '">&#128191; ' + $("<div>").text(albumName).html() + '</p>';
+            '<p class="api-artist-name" title="' + $("<div>").text(artistName).html() + '">' + $("<div>").text(artistName).html() + '</p>' +
+            '<p class="api-collection-name" title="' + $("<div>").text(albumName).html() + '">' + $("<div>").text(albumName).html() + '</p>';
 
         if (previewAudio) {
           cardHtml += '<audio class="api-audio" controls preload="none" src="' + previewAudio + '">Your browser does not support audio playback.</audio>';
@@ -516,8 +515,8 @@ $(function () {
           "<td><span class=\"badge bg-secondary\">" + esc(song.genre) + "</span></td>" +
           "<td>" + song.year + "</td>" +
           '<td class="actions">' +
-            '<button type="button" class="btn btn-sm btn-outline-light edit-btn me-1" data-id="' + song.id + '">&#9998; Edit</button>' +
-            '<button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-id="' + song.id + '">&#128465; Delete</button>' +
+            '<button type="button" class="btn btn-sm btn-outline-light edit-btn me-1" data-id="' + song.id + '">Edit</button>' +
+            '<button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-id="' + song.id + '">Delete</button>' +
           "</td></tr>";
       });
 

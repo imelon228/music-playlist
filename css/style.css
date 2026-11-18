@@ -994,3 +994,18 @@ button, .btn, .faq-question, .btn-filter, .filter-btn { cursor: pointer; }
 [data-theme="dark"] .form-control::placeholder { color: #9a9a9a; }
 [data-theme="light"] .form-control::placeholder { color: #64748b; }
 .contact-info h1, .contact-info h2, .contact-info h3, .contact-info h4, .contact-info h5 { color: var(--text) !important; font-weight: 700; }
+
+/* Guarantee no overlap between a page title and its subtitle */
+.section-title { line-height: 1.25; }
+.section-title.mb-1 + .section-subtitle { margin-top: 0 !important; }
+
+/* Play button: CSS triangle instead of a glyph */
+.play::before {
+  content: "";
+  display: block;
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 8px 0 8px 13px;
+  border-color: transparent transparent transparent #000;
+}
+.wave-art { color: var(--green); opacity: .85; max-width: 100%; height: auto; }
