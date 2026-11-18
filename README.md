@@ -13,9 +13,9 @@ WaveList is a responsive, Spotify-inspired website about music: songs, albums an
 - publish the finished site online with GitHub Pages.
 
 ## Group members
-- Fariddin
-- Aidyn
-- Ilyas
+- Dautov Fariddin
+- Yeskendirov Aidyn
+- Amangeldiyev Ilyas
 
 ## Links
 - Deployed website (GitHub Pages): https://imelon228.github.io/music-playlist/
@@ -83,15 +83,20 @@ Every page uses the same navigation bar (with the theme toggle and sign-in area)
 ## Individual contributions
 | Member | Responsibilities |
 |---|---|
-| **Fariddin** | HTML structure and navigation for the Home, Songs, FAQ and Contact pages; FAQ accordion with jQuery `.slideToggle()`; songs table (search, filter, add / edit / delete with `localStorage`); contact form handling; README |
-| **Aidyn** | CSS design system and responsive layout; light / dark theme toggle and its `localStorage` persistence; Albums and Artists pages with album search / filter and the lightbox gallery; visual polish and testing on different screen sizes |
+| **Aidyn** | HTML structure and navigation for the Home, Songs, FAQ and Contact pages; FAQ accordion with jQuery `.slideToggle()`; songs table (search, filter, add / edit / delete with `localStorage`); contact form handling; README |
+| **Fariddin** | CSS design system and responsive layout; light / dark theme toggle and its `localStorage` persistence; Albums and Artists pages with album search / filter and the lightbox gallery; visual polish and testing on different screen sizes |
 | **Ilyas** | Sign in and registration with validation and the `localStorage` session; signed-in state and Sign Out in the navbar; Music API page with the iTunes API integration (fetch, rendering, search, filter, error handling); GitHub Pages deployment |
 
 ## Screenshots
-Screenshots of the main pages (home, songs, albums, artists, music API, FAQ open, sign in, light and dark theme, mobile view) are stored in the `screenshots/` folder and included in the project report.
+Screenshots of the main pages (home, songs, albums, artists, music API, FAQ open, sign in, light and dark theme, mobile view):
+<img width="1918" height="915" alt="image" src="https://github.com/user-attachments/assets/093fdcd8-a046-4fa3-a35f-a77a1d18cf08" />
+
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/dc2e3a59-e880-4ac7-ad98-0ce3191e6d3c" />
+
+<img width="1917" height="883" alt="image" src="https://github.com/user-attachments/assets/8ff79709-269a-4305-9ad7-5473fc6fc12f" />
+
+
 
 ## AI usage
 The project was designed and developed by the team. AI tools were used as a supporting assistant for a small part of the work: debugging, fixing text contrast and heading spacing in the CSS, improving API error handling and drafting this README. The team reviewed all of the code. The use of AI is acknowledged in this README and in the project report.
 
-## Run locally
-Open the folder with a local server (for example the Live Server extension in VS Code, or `python -m http.server 8000`) and visit `http://localhost:8000`. Opening the HTML files directly from disk can block the API requests.
