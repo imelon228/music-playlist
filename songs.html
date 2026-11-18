@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Songs Playlist | WaveList</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Wave<span>List</span></a>
+      <div class="nav-wrap">
+        <nav aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html" class="active">Songs</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="api.html">Music API</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle-btn" id="themeToggle" title="Toggle theme">
+            <span>🌙</span> Dark
+          </button>
+          <div class="auth-nav-container" id="authContainer">
+            <a href="signin.html" class="btn btn-sm btn-music-outline">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+      <div>
+        <h1 class="section-title mb-1">Playlist Songs</h1>
+        <p class="section-subtitle">Manage, filter, add, or edit your curated tracklist</p>
+      </div>
+      <button type="button" class="btn btn-music" id="addBtn">+ Add New Song</button>
+    </div>
+
+    <!-- Search Toolbar -->
+    <div class="toolbar">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search by title, artist, or album..." aria-label="Search songs">
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-row" id="filterRow">
+      <button type="button" class="filter-btn active" data-genre="all">All Genres</button>
+      <button type="button" class="filter-btn" data-genre="Pop">Pop</button>
+      <button type="button" class="filter-btn" data-genre="Hip-Hop">Hip-Hop</button>
+      <button type="button" class="filter-btn" data-genre="Pop Rock">Pop Rock</button>
+      <button type="button" class="filter-btn" data-genre="Psychedelic Pop">Psychedelic Pop</button>
+    </div>
+
+    <p class="no-results" id="noResults">No songs match your current filter or query.</p>
+
+    <!-- Songs Table -->
+    <div class="table-wrap">
+      <table class="song-table" id="songTable">
+        <caption>Curated songs in the WaveList playlist</caption>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="songBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Add / Edit Song Modal -->
+  <div class="modal fade" id="songModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" id="songForm" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Add Song</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="songId">
+          <div class="mb-3">
+            <label for="songTitle" class="form-label">Song Title</label>
+            <input type="text" class="form-control" id="songTitle" placeholder="e.g. Blinding Lights" required>
+            <div class="invalid-feedback">Please enter the song title</div>
+          </div>
+          <div class="mb-3">
+            <label for="songArtist" class="form-label">Artist Name</label>
+            <input type="text" class="form-control" id="songArtist" placeholder="e.g. The Weeknd" required>
+            <div class="invalid-feedback">Please enter the artist name</div>
+          </div>
+          <div class="mb-3">
+            <label for="songAlbum" class="form-label">Album Title</label>
+            <input type="text" class="form-control" id="songAlbum" placeholder="e.g. After Hours" required>
+            <div class="invalid-feedback">Please enter the album name</div>
+          </div>
+          <div class="mb-3">
+            <label for="songGenre" class="form-label">Genre</label>
+            <select class="form-select" id="songGenre">
+              <option>Pop</option>
+              <option>Hip-Hop</option>
+              <option>Pop Rock</option>
+              <option>Psychedelic Pop</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="songYear" class="form-label">Release Year</label>
+            <input type="number" class="form-control" id="songYear" placeholder="e.g. 2020" min="1900" max="2027" required>
+            <div class="invalid-feedback">Enter a valid release year (1900 - present)</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-music">Save Song</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>WaveList</h3>
+          <p>Your open music catalog for discovering songs, managing playlists, and connecting with favorite artists.</p>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html">Songs Table</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists & Gallery</a></li>
+            <li><a href="api.html">Music API Explorer</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Account & Support</h3>
+          <ul>
+            <li><a href="signin.html">Sign In / Register</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+            <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube Music</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-notice">
+        <strong>AI Usage Policy Notice:</strong> In accordance with course guidelines (Rule 6), AI tools (Google DeepMind) were used as supporting assistants for code structuring, responsive design, and refactoring into multi-page architecture.
+      </div>
+
+      <p class="copy">&copy; 2026 WaveList. Group: Fariddin, Aidyn, Ilyas (IT-2504). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

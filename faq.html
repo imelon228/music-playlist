@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frequently Asked Questions | WaveList</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Wave<span>List</span></a>
+      <div class="nav-wrap">
+        <nav aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="api.html">Music API</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle-btn" id="themeToggle" title="Toggle theme">
+            <span>🌙</span> Dark
+          </button>
+          <div class="auth-nav-container" id="authContainer">
+            <a href="signin.html" class="btn btn-sm btn-music-outline">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="section-title">Frequently Asked Questions</h1>
+      <p class="section-subtitle">Everything you need to know about WaveList, playlists, and audio playback</p>
+    </div>
+
+    <!-- FAQ Accordion Container (jQuery .slideToggle()) -->
+    <div class="faq-container">
+      <!-- Question 1 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>What is WaveList and how does it work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>WaveList is a modern, responsive web application inspired by Spotify and music streaming hubs. It allows music enthusiasts to explore popular artists, curated albums, manage personalized song playlists with full CRUD functionality, and search millions of live songs via our public Music API.</p>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Are my added and edited songs saved when I refresh the page?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! All song additions, edits, and deletions performed on the <strong>Songs</strong> page are automatically synchronized and persisted in your browser's <code>localStorage</code>. Even when you refresh your browser or close the tab, your playlist changes remain preserved.</p>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How does the Music API integration function?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The <strong>Music API</strong> page communicates directly with the public iTunes Search API using modern JavaScript <code>fetch()</code> requests. It retrieves live JSON data, handles errors gracefully, and provides direct 30-second playable HTML5 audio streams with album artwork and genre classifications.</p>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How does user sign-in and theme switching work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Both authentication and your chosen theme (Dark/Light) are managed client-side using <code>localStorage</code>. When you sign in or switch themes, your preferences are saved across all pages of the site and remain active across sessions until you sign out or clear your browser data.</p>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Can I suggest new artists or submit song recommendations?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! Head over to our <a href="contact.html">Contact Us</a> page, fill in your details along with your favorite artist and message, and our curation team will review your recommendations for the next playlist update.</p>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Is WaveList optimized for mobile and tablet devices?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, WaveList is built mobile-first with responsive CSS Flexbox and Grid layouts. The layout fluidly adapts to smartphone screens, tablets, laptops, and ultra-wide desktop monitors without sacrificing any visual aesthetics or functional capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>WaveList</h3>
+          <p>Your open music catalog for discovering songs, managing playlists, and connecting with favorite artists.</p>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html">Songs Table</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists & Gallery</a></li>
+            <li><a href="api.html">Music API Explorer</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Account & Support</h3>
+          <ul>
+            <li><a href="signin.html">Sign In / Register</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+            <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube Music</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-notice">
+        <strong>AI Usage Policy Notice:</strong> In accordance with course guidelines (Rule 6), AI tools (Google DeepMind) were used as supporting assistants for code structuring, responsive design, and refactoring into multi-page architecture.
+      </div>
+
+      <p class="copy">&copy; 2026 WaveList. Group: Fariddin, Aidyn, Ilyas (IT-2504). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

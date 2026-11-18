@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In &amp; Account | WaveList</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Wave<span>List</span></a>
+      <div class="nav-wrap">
+        <nav aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="api.html">Music API</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle-btn" id="themeToggle" title="Toggle theme">
+            <span>🌙</span> Dark
+          </button>
+          <div class="auth-nav-container" id="authContainer">
+            <a href="signin.html" class="btn btn-sm btn-music-outline active">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <!-- Active Profile Section (Shown when signed in) -->
+    <div id="profileSection" class="form-card text-center" style="display: none;">
+      <div style="font-size: 3.5rem; margin-bottom: 12px;">&#128100;</div>
+      <h2 class="h3 mb-2">Welcome Back!</h2>
+      <p class="text-muted mb-4">You are currently signed in to WaveList.</p>
+      
+      <div class="card-box p-3 text-start mb-4">
+        <div class="mb-2"><strong>Name:</strong> <span id="profileName" class="text-success">User</span></div>
+        <div class="mb-2"><strong>Email:</strong> <span id="profileEmail" class="text-muted">user@example.com</span></div>
+        <div class="mb-2"><strong>Session Started:</strong> <span id="profileDate" class="text-muted">Today</span></div>
+        <div><strong>Status:</strong> <span class="badge bg-success">Authenticated (localStorage)</span></div>
+      </div>
+
+      <div class="d-flex justify-content-center gap-3">
+        <a href="songs.html" class="btn btn-music">Manage Playlist</a>
+        <button type="button" class="btn btn-outline-danger" id="pageSignOutBtn">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- Auth Forms Section (Shown when signed out) -->
+    <div id="authFormsSection" class="form-card">
+      <div class="form-tabs">
+        <button type="button" class="form-tab-btn active" data-tab="signInPane">Sign In</button>
+        <button type="button" class="form-tab-btn" data-tab="registerPane">Create Account</button>
+      </div>
+
+      <div id="authAlert"></div>
+
+      <!-- Sign In Tab -->
+      <div id="signInPane" class="auth-tab-pane">
+        <h2 class="h4 mb-3">Sign in to WaveList</h2>
+        <p class="text-muted mb-4">Access your customized playlists and theme preferences.</p>
+        <form id="signInForm" novalidate>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="mb-4">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+            <div class="invalid-feedback">Password must be at least 6 characters.</div>
+          </div>
+          <button type="submit" class="btn btn-music w-100">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Register Tab -->
+      <div id="registerPane" class="auth-tab-pane" style="display: none;">
+        <h2 class="h4 mb-3">Create your account</h2>
+        <p class="text-muted mb-4">Join our community to curate and save your favorite songs.</p>
+        <form id="registerForm" novalidate>
+          <div class="mb-3">
+            <label for="regName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="regName" placeholder="e.g. Fariddin" required>
+            <div class="invalid-feedback">Name must be at least 2 characters.</div>
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="regEmail" placeholder="name@mail.com" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="regPassword" placeholder="At least 6 characters" required>
+            <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            <div class="progress strength-bar mt-2">
+              <div class="progress-bar" id="strengthBar"></div>
+            </div>
+            <small id="strengthText" class="strength-text">Password strength</small>
+          </div>
+          <div class="mb-4">
+            <label for="regConfirm" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="regConfirm" placeholder="Repeat your password" required>
+            <div class="invalid-feedback">Passwords do not match.</div>
+          </div>
+          <button type="submit" class="btn btn-music w-100">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>WaveList</h3>
+          <p>Your open music catalog for discovering songs, managing playlists, and connecting with favorite artists.</p>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="songs.html">Songs Table</a></li>
+            <li><a href="albums.html">Albums</a></li>
+            <li><a href="artists.html">Artists & Gallery</a></li>
+            <li><a href="api.html">Music API Explorer</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Account & Support</h3>
+          <ul>
+            <li><a href="signin.html">Sign In / Register</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+            <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube Music</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-notice">
+        <strong>AI Usage Policy Notice:</strong> In accordance with course guidelines (Rule 6), AI tools (Google DeepMind) were used as supporting assistants for code structuring, responsive design, and refactoring into multi-page architecture.
+      </div>
+
+      <p class="copy">&copy; 2026 WaveList. Group: Fariddin, Aidyn, Ilyas (IT-2504). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
