@@ -1,6 +1,8 @@
 # WaveList - Music Playlist Website
 
-Final Project, Web Technologies (IT-2504), Astana IT University.
+Final Project
+
+IT-2504
 
 ## Project topic and objectives
 WaveList is a responsive, Spotify-inspired website about music: songs, albums and artists. The goals of the project were:
@@ -92,4 +94,4 @@ Screenshots of the main pages (home, songs, albums, artists, music API, FAQ open
 The project was designed and developed by the team. AI tools were used as a supporting assistant for a small part of the work: debugging, fixing text contrast and heading spacing in the CSS, improving API error handling and drafting this README. The team reviewed all of the code. The use of AI is acknowledged in this README and in the project report.
 
 ## Run locally
-Use a local server (the Live Server extension in VS Code, or `python -m http.server 8000`) and open `http://localhost:8000`. Opening the HTML files directly from disk can block the API requests.
+Open the folder with a local server (for example the Live Server extension in VS Code, or `python -m http.server 8000`) and visit `http://localhost:8000`. Opening the HTML files directly from disk can block the API requests.
