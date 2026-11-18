@@ -267,6 +267,10 @@ a:focus {
   margin-bottom: 24px;
 }
 
+.section-title.mb-1 + .section-subtitle {
+  margin-top: 0;
+}
+
 .section-subtitle {
   color: var(--muted);
   margin-top: -16px;
@@ -956,3 +960,37 @@ a:focus {
     font-size: 0.85rem;
   }
 }
+
+
+/* ---- Fixes: contrast in light theme, API status, focus states ---- */
+[data-theme="light"] .btn-outline-light {
+  color: var(--text);
+  border-color: var(--input-border);
+  background: transparent;
+}
+[data-theme="light"] .btn-outline-light:hover,
+[data-theme="light"] .btn-outline-light:focus-visible {
+  color: #fff;
+  background: var(--text);
+  border-color: var(--text);
+}
+.btn-outline-danger { color: #ef4444; border-color: #ef4444; }
+.btn-outline-danger:hover { background: #ef4444; border-color: #ef4444; color: #fff; }
+[data-theme="light"] .btn-outline-danger { color: #dc2626; border-color: #dc2626; }
+[data-theme="light"] .btn-outline-danger:hover { background: #dc2626; color: #fff; }
+[data-theme="light"] .badge.bg-secondary { background-color: #475569 !important; color: #fff; }
+#apiStatus { transition: background-color .25s ease; }
+#apiStatus.status-error { background-color: #dc2626 !important; }
+#apiStatus.status-loading { background-color: #d97706 !important; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+button, .btn, .faq-question, .btn-filter, .filter-btn { cursor: pointer; }
+
+/* Bootstrap's .text-muted ignores our theme -> force theme-aware colours */
+.text-muted, small.text-muted, .form-text { color: var(--muted) !important; }
+.text-success { color: var(--green) !important; }
+[data-theme="light"] .text-success { color: #047857 !important; }
+.api-controls-card .small.fw-bold { color: var(--text) !important; opacity: .85; }
+[data-theme="dark"] .form-control, [data-theme="dark"] .form-select { color: var(--text); }
+[data-theme="dark"] .form-control::placeholder { color: #9a9a9a; }
+[data-theme="light"] .form-control::placeholder { color: #64748b; }
+.contact-info h1, .contact-info h2, .contact-info h3, .contact-info h4, .contact-info h5 { color: var(--text) !important; font-weight: 700; }

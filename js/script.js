@@ -9,6 +9,7 @@
 (function initTheme() {
   var savedTheme = localStorage.getItem("wavelist_theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
+  document.documentElement.setAttribute("data-bs-theme", savedTheme);
 })();
 
 $(function () {
@@ -31,6 +32,7 @@ $(function () {
     var currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
     var newTheme = currentTheme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", newTheme);
+    document.documentElement.setAttribute("data-bs-theme", newTheme);
     localStorage.setItem("wavelist_theme", newTheme);
     updateThemeButton();
   });
@@ -310,12 +312,22 @@ $(function () {
   // -----------------------------------------------------------
   if ($("#apiResultsGrid").length) {
     var lastApiData = [];
+    var lastApiQuery = "The Weeknd";
+
+    function setApiStatus(state, text) {
+      $("#apiStatus")
+        .removeClass("bg-success bg-warning bg-danger text-dark status-error status-loading")
+        .addClass(state === "ok" ? "bg-success" : state === "error" ? "bg-danger status-error" : "bg-warning text-dark status-loading")
+        .text(text);
+    }
 
     function searchMusicApi(term, filterGenre) {
       var query = $.trim(term);
       if (!query) {
         query = "pop";
       }
+      lastApiQuery = query;
+      setApiStatus("loading", "API Status: Loading\u2026");
 
       $("#apiLoading").show();
       $("#apiError").hide();
@@ -334,16 +346,20 @@ $(function () {
         .then(function (data) {
           $("#apiLoading").hide();
           if (!data || !data.results || data.results.length === 0) {
+            lastApiData = [];
+            setApiStatus("ok", "API Status: Connected (0 results)");
             $("#apiEmpty").show();
             return;
           }
+          setApiStatus("ok", "API Status: Live & Connected");
           lastApiData = data.results;
           renderApiCards(lastApiData, filterGenre || "all");
         })
         .catch(function (error) {
           console.error("API Fetch Error:", error);
           $("#apiLoading").hide();
-          $("#apiErrorMsg").text(error.message || "Unable to reach the Music API. Please check your connection.");
+          setApiStatus("error", "API Status: Unavailable");
+          $("#apiErrorMsg").text("Could not reach the iTunes API (" + (error.message || "network error") + "). Check your internet connection, disable ad-blockers/VPN and try again.");
           $("#apiError").show();
         });
     }
@@ -390,6 +406,11 @@ $(function () {
         $("#apiEmpty").hide();
       }
     }
+
+    $("#apiRetryBtn").on("click", function () {
+      var genre = $(".api-genre-filter.active").data("genre") || "all";
+      searchMusicApi(lastApiQuery, genre);
+    });
 
     // Search submit
     $("#apiSearchForm").on("submit", function (e) {
