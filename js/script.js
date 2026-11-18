@@ -329,6 +329,7 @@ $(function () {
       });
     }
 
+    
     document.addEventListener("play", function (e) {
       if (!e.target || !e.target.classList || !e.target.classList.contains("api-audio")) {
         return;
