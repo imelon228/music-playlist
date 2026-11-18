@@ -320,6 +320,24 @@ $(function () {
         .text(text);
     }
 
+    // Only one preview plays at a time: starting a track pauses all the others.
+    // The "play" event does not bubble, so it is caught in the capture phase.
+    function stopAllApiAudio() {
+      $("audio.api-audio").each(function () {
+        this.pause();
+        this.currentTime = 0;
+      });
+    }
+
+    document.addEventListener("play", function (e) {
+      if (!e.target || !e.target.classList || !e.target.classList.contains("api-audio")) {
+        return;
+      }
+      $("audio.api-audio").not(e.target).each(function () {
+        this.pause();
+      });
+    }, true);
+
     function searchMusicApi(term, filterGenre) {
       var query = $.trim(term);
       if (!query) {
@@ -331,6 +349,7 @@ $(function () {
       $("#apiLoading").show();
       $("#apiError").hide();
       $("#apiEmpty").hide();
+      stopAllApiAudio();
       $("#apiResultsGrid").empty();
 
       var apiUrl = "https://itunes.apple.com/search?term=" + encodeURIComponent(query) + "&entity=song&limit=24";
@@ -365,6 +384,7 @@ $(function () {
 
     function renderApiCards(tracks, genreFilter) {
       var $grid = $("#apiResultsGrid");
+      stopAllApiAudio();
       $grid.empty();
       var count = 0;
 
